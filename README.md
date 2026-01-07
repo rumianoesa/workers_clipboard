@@ -63,12 +63,6 @@ echo ==========================
 echo.
 powershell -command "[System.IO.File]::WriteAllText('save.txt', (Get-Clipboard -Raw))"
 if not exist "save.txt" (
-    echo.
-    echo ==========================
-    echo 剪贴板为空！
-    echo ==========================
-    echo.
-    timeout /t 3 >nul
     exit /b
 )
 for %%A in ("save.txt") do (
@@ -113,12 +107,6 @@ echo ==========================
 echo.
 curl -s "%url%/%token%/read" > "read.txt"
 if not exist "read.txt" (
-    echo.
-    echo ==========================
-    echo 读取失败或剪贴板为空！
-    echo ==========================
-    echo.
-    timeout /t 3 >nul
     exit /b
 )
 for %%A in ("read.txt") do (
@@ -170,3 +158,4 @@ echo.
 timeout /t 3 >nul
 
 ```
+
